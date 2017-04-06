@@ -2,16 +2,20 @@
 
 body {
   background-color: #B0C4DE;
-  font-family: "Roboto", helvetica, arial, sans-serif;
-  font-size: 16px;
-  font-weight: 400;
-  text-rendering: optimizeLegibility;
+  font-family:"Open Sans", Helvetica, Arial, sans-serif;
+	font-weight:300;
+	font-size: 12px;
+	line-height:30px;
+	color:#777;
+
 }
+
+.resaltar{background-color:#FF0;}
 
 
 div.table-title {
-   display: block;
-  margin: auto;
+display: block;
+ 
   max-width: 600px;
   padding:0px;
   width: 100%;
@@ -20,9 +24,9 @@ div.table-title {
 .table-title h3 {
    color: #fafafa;
    font-size: 30px;
-   font-weight: 400;
+   font-weight: 300;
    font-style:normal;
-   font-family: "Roboto", helvetica, arial, sans-serif;
+   font-family:"Open Sans", Helvetica, Arial, sans-serif;
    text-shadow: -1px -1px 1px rgba(0, 0, 0, 0.1);
    text-transform:uppercase;
 }
@@ -50,7 +54,7 @@ th {
   border-right: 1px solid #343a45;
   font-size:23px;
   font-weight: 100;
-  padding:18px;
+  padding:10px;
   text-align:left;
   text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
   vertical-align:middle;

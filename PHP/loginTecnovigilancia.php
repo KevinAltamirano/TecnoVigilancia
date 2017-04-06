@@ -3,17 +3,49 @@
     session_start();
     
     
-    
-    if($_SERVER["REQUEST_METHOD"] == "POST") {
-       
-        
-        $myusername = mysqli_real_escape_string($db,$_POST['username']);
-        $mypassword = mysqli_real_escape_string($db,$_POST['password']); 
-        echo $myusername;
-        echo $mypassword;
-        
-        header("location: equipoLista.php");
+    if (isset($_POST['username']) & isset($_POST['password'])) {
+         $nombre= htmlentities($_POST['username']);
+         $pass = htmlentities($_POST['password']);
 
+        if(verificar_login($_POST['username'],$_POST['password'],$result) == 1)
+            {
+                
+                if($nombre=="chriscanzion@gmail.com"){
+                    header("location:equipoListaAdmin.php");
+                    //echo 'console.log("Usuario Administrador");';
+                }
+                else{
+                    header("location:equipoLista.php");
+                }
+            }
+            else
+            {
+                    
+                //echo "alert('Incorrecto');";
+                $message = "Usuario Incorrecto";
+                echo "<script type='text/javascript'>alert('$message');</script>";
+                //header("location:loginTecnoVigilancia.php");
+            }
+}
+
+        function verificar_login($user,$password,&$result)
+        {
+            $sql = "SELECT * FROM login WHERE email='$user' and password='$password'";
+            $rec = mysql_query($sql);
+            $count = 0;
+            while($row = mysql_fetch_object($rec))
+            {   
+                $count++;
+                $result = $row;
+            }
+            if($count == 1)
+            {
+                return 1;
+            }
+            else
+            {
+                return 0;
+            }
         }
     ?>
 
@@ -45,5 +77,8 @@
                 </form>
             </div>
         </body>
+        <script type="text/javascript">
+        document.oncontextmenu = function(){return false;}
+        </script>
     </html> 
 
